@@ -66,6 +66,7 @@ int main(){
     cout<<"\n\t\t Please select one:"<<endl;
     cout<<"\n\t\t 1.For registration"<<endl;
     cout<<"\n\t\t 2.For login"<<endl;
+    cout<<"\n\t\t 2.Forget password!!!"<<endl;
     temp t;
 
 cin>>choice;
@@ -79,6 +80,9 @@ case '1':
     break;
 case '2':
     t.login();
+
+case '3':
+    t.forget();
 
 default:
     break;
