@@ -2,7 +2,7 @@
 #include<fstream>
 using namespace std;
 class temp{
- string name, mobile,address,pass,cpass;
+ string name, mobile,address,pass,cpass,username;
  fstream file;
 
  public:
@@ -20,16 +20,48 @@ void temp::signUp(){
     getline(cin,mobile);
     cout<<"Enter your address"<<endl;
     getline(cin,address);
+    cout<<"Enter your username"<<endl;
+    getline(cin,username);
     cout<<"create your password "<<endl;
     getline(cin,pass);
     // cout<<"confirm password"<<endl;
     // getline(cin,cpass);
     file.open("registrationdDetails.txt",ios::out | ios::app);
-    file<<name<<"|"<<address<<"|"<<mobile<<"|"<<pass <<endl;
+    file<<name<<"|"<<address<<"|"<<mobile<<"|"<<username<<"|"<<pass <<endl;
     file.close();
 }
+void temp::login(){
+    cin.ignore();
+     string matchusername,matchpass;
+     cout<<"Enter your username"<<endl;
+     getline(cin,matchusername);
+     cout<<"Enter your password"<<endl;
+     getline(cin,matchpass);
+     file.open("registrationdDetails.txt",ios::in);
+        if(!file.is_open()){
+            cerr<<"error opening file"<<endl;
+            return;
+        }
+        bool loginSuccess=false;
+
+
+      while (getline(file, name, '|') && getline(file, address, '|') && getline(file, mobile, '|') &&
+           getline(file, username, '|') && getline(file, pass)){
+          if (username == matchusername && pass == matchpass) {
+            cout << "Login successful!!!" << endl;
+            loginSuccess = true;
+            break;
+        }
+        }
+    if (!loginSuccess) {
+        cout << "Please enter valid credentials or register if you don't have an account." << endl;
+    }
+
+     file.close();
+     
+
+}
 int main(){
-   
     char choice;
     cout<<"\n\t\t Please select one:"<<endl;
     cout<<"\n\t\t 1.For registration"<<endl;
@@ -45,6 +77,8 @@ case '1':
    
 
     break;
+case '2':
+    t.login();
 
 default:
     break;

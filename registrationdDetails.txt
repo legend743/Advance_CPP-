@@ -1,5 +1,1 @@
-**mohd faisal*faisal123
-**cd "d:\All Learning lecture\Advance_CPP-\" ; if ($?) { g++ RegistrationNlogin.cpp -o RegistrationNlogin } ; if ($?) { .\RegistrationNlogin }*
-faisal*faisal*8896661687*faisl123
-faisal*ahmad nagar*8739489238*729393
-faisal|kannauj|kanpur|134r432
+mohd faisal|39/977 afdrf nhtewadear|889666789|oo7|009090
