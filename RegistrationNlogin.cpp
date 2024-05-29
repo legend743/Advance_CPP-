@@ -61,12 +61,36 @@ void temp::login(){
      
 
 }
+
+
+void temp::forgotpass(){
+    cin.ignore();
+    string search_username,name;
+    cout<<"Enter your username"<<endl;
+    getline(cin,search_username);
+    cout<<"Enter your name"<<endl;
+    getline(cin,name);
+    file.open("registrationdDetails.txt",ios::in);
+    if(!file.is_open()){
+        cerr<<"error opening file!!!";
+    }
+    while(getline(file, name, '|') && getline(file, address, '|') && getline(file, mobile, '|') &&
+           getline(file, username, '|') && getline(file, pass)){
+            if(username==search_username && name==name){
+                cout<<"your password is:"<<endl;
+                cout<<pass;
+            }
+
+
+    }
+    cout<<"user not found!!!"<<endl;
+}
 int main(){
     char choice;
     cout<<"\n\t\t Please select one:"<<endl;
     cout<<"\n\t\t 1.For registration"<<endl;
     cout<<"\n\t\t 2.For login"<<endl;
-    cout<<"\n\t\t 2.Forget password!!!"<<endl;
+    cout<<"\n\t\t 3.Forget password!!!"<<endl;
     temp t;
 
 cin>>choice;
@@ -82,7 +106,7 @@ case '2':
     t.login();
 
 case '3':
-    t.forget();
+    t.forgotpass();
 
 default:
     break;

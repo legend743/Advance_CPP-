@@ -4,6 +4,8 @@
         "iosfwd": "cpp",
         "iostream": "cpp",
         "*.tcc": "cpp",
-        "string": "cpp"
+        "string": "cpp",
+        "system_error": "cpp",
+        "xlocale": "cpp"
     }
 }
